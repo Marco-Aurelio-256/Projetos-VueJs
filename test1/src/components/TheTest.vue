@@ -1,18 +1,21 @@
 <template>
-    <h1 class="titulo">{{ x }}</h1>
+    <div class="titulo">
+      <h1>{{ question }}</h1>  
+    </div>
 </template>
 
 <script>
     export default {
         name: 'TheTest',
         props: {
-        x: String
+        question: String
+        }
     }
-}
+
 </script>
 
-<style>
+<style scoped>
     .titulo{
-        color:pink;
+        margin: 10px;
     }
 </style>
