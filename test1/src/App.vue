@@ -1,16 +1,19 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Titulo"/>
+  <TheTest x="Nice Demias"/>
+  <HelloWorld msg="KD"/>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import TheTest from './components/TheTest.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+    TheTest
+}
 }
 </script>
 
