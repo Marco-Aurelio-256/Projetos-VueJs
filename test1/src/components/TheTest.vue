@@ -1,5 +1,5 @@
 <template>
-    <div class="titulo">
+    <div>
       <h1>{{ question }}</h1>  
     </div>
 </template>
@@ -15,7 +15,4 @@
 </script>
 
 <style scoped>
-    .titulo{
-        margin: 10px;
-    }
 </style>
