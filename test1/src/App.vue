@@ -59,6 +59,7 @@
             Cancelar
           </button>
       </div>
+      <br>
 
       Usuário: {{user}}<br>
       Senha:  {{pw}}
@@ -259,6 +260,8 @@
   .form-area{
     padding-top: 5%;
     padding-bottom: 5%;
+    margin-right: 10%;
+    margin-left: 10%;
     background-color: #fff4f7;
     color: black;
     border-radius: 20px;
@@ -369,7 +372,7 @@
     text-decoration: none;
   }
 
-  @media screen and (max-width: 979px) {
+  @media screen and (max-width: 1070px) {
     section{
     padding: 10px;
     margin-top: 10px;

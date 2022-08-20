@@ -153,7 +153,7 @@ nav a li:last-of-type{
 
 
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 1070px) {
     nav{
         display: none;
     }

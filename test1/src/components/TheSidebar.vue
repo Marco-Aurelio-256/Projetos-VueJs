@@ -37,7 +37,7 @@
         font-size: medium;
     }
 
-    @media screen and (max-width: 979px) {
+    @media screen and (max-width: 1070px) {
         .sidebar{
             display:none;
         }
