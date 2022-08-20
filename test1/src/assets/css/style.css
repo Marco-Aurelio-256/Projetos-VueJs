@@ -1,0 +1,156 @@
+html,body {
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+  section{
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 25%;
+    background: rgb(99,7,38);
+    background: linear-gradient(-90deg, rgba(99,7,38,1) 0%, rgb(70, 7, 28) 100%);
+
+    border-radius: 0 25px 25px 0;
+    min-height: 10vw;
+  }
+  
+  .form-area{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-right: 10%;
+    margin-left: 10%;
+    background-color: #fff4f7;
+    color: black;
+    border-radius: 20px;
+  }
+
+  .inner-form{
+    margin: 10px;
+
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .form{
+    display: inline-block;
+  }
+
+  .like{
+    cursor: pointer;
+    margin-top: 20px;
+
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+    border:none;
+    color: #fff4f7;
+    font-size: medium;
+    box-shadow: 2px 4px rgba(0,0,0, 0.15);
+    font-weight: 700;
+    border-radius: 10px;
+  }
+  .form input{
+    width: 20vw;
+
+    background-color: rgb(141, 141, 141);
+    border: none;
+    box-shadow: 2px 4px #20122c;
+  }
+
+  .btn{
+    cursor: pointer;
+    margin-top: 20px;
+
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+    border:none;
+    color: #fff4f7;
+    font-size: medium;
+    box-shadow: 2px 4px rgba(0,0,0, 0.15);
+    font-weight: 700;
+    border-radius: 10px;
+  }
+
+  .btn-green{
+    background-color: #35805b;
+  }
+
+  .btn-green:hover{
+    transition: 0.4s;
+    background-color: #175033;
+  }
+
+  .btn-red{
+    background-color: #dd3e3e;
+  }
+
+  .btn-red:hover{
+    transition: 0.4s;
+    background-color: #9b2929;
+  }
+
+  .btn-form button:first-child{
+    margin-right: 10px;
+  }
+
+  label{
+    text-align: left;
+    font-weight: 700;
+  }
+
+
+  .ranking-list{
+    justify-content: center;
+  }
+
+  .ranking-item{
+    display: inline-block;
+    text-align: left;
+    padding-bottom: 10px;
+  }
+
+  .text{
+    color: green;
+  }
+
+  .title{
+    font-size: 50px;
+  }
+
+  body{
+    background-color: #20122c;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 1070px) {
+    section{
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #630726;
+    border-radius: 25px 25px 25px 25px;
+    }
+
+    .form-area{
+    display: block;
+
+    background-color: #fff4f7;
+    color: black;
+    border-radius: 20px;
+    }
+
+    .inner-form{
+    margin: 10px;
+    align-content: center;
+  }
+  }
