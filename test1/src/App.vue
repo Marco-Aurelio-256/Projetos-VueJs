@@ -7,17 +7,26 @@
   <main>
     <HeaderTop/>
     <section>
-      <TheTest question="Que dia é hoje?"></TheTest>
-      <h3>{{ dateBuilder() }}</h3>
+      <h1>Teste de Slots</h1>
+      <SlotTest> 
+        ISso está funcionando? <br> Meu deus, está! :OOOOOO <br>
+        Muito legal né? <br> Sim :D
+        
+        </SlotTest>
     </section>
 
     <section>
-      <TheTest question="É natal?"></TheTest>  
+      <h1>Teste de funções</h1>
+      <TheTest question="Que dia é hoje?"></TheTest>
+      <h3>{{ dateBuilder() }}</h3>
+      <br>
+      <TheTest question="É natal?"></TheTest>
       <h1 v-if="dateBuilder().includes('25 Dezembro')" style="color: #5ca058;">Sim</h1>
       <h3 v-else style="color: #a81a4a;">Não</h3>
     </section>
 
     <section>
+      <h1> Teste de Data-binding</h1>
       <div class="form-area">
         <div class="form">
           <label for="user">Usuário</label><br>
@@ -35,21 +44,20 @@
           v-model="pw"
         >
         </div>
-
+        </div>
         <div class="btn-form">
           <button
-            class="btn-green"
+            class="btn btn-green"
             type="button" onclick="alert('Logado?')"
             >
             Login
           </button>
 
           <button
-            class="btn-red"
+            class="btn btn-red"
             type="button" onclick="alert('Campos cancelados')">
             Cancelar
           </button>
-        </div>
       </div>
 
       Usuário: {{user}}<br>
@@ -57,58 +65,18 @@
     </section>
 
     <section>
-      <p v-if="curtidas===0">
-        Ninguém curtiu esse site :c<br>
-        Dá uma curtida ae :D
-      </p>
-
-      <p v-else-if="curtidas === 1">
-        Este site recebeu {{ curtidas }} curtida<br>
-        Obrigado ;)
-      </p>
-
-      <p v-else-if="curtidas >= 30 && curtidas < 60">
-        Este site recebeu {{ curtidas }} curtidas<br>
-        Eita tá subindo :o
-      </p>
-
-      <p v-else-if="curtidas >= 60 && curtidas < 90">
-        Este site recebeu {{ curtidas }} curtidas<br>
-        Oloko não para :O
-      </p>
-
-      <p v-else-if="curtidas >= 90 && curtidas < 120">
-        Este site recebeu {{ curtidas }} curtidas<br>
-        Tá tudo bem ae? o teu dispositvo não bugou? :U
-      </p>
-
-      <p v-else-if="curtidas >= 120 && curtidas < 150">
-        Este site recebeu {{ curtidas }} curtidas<br>
-        Ei! isso está doendo!  >:d
-      </p>
-
-      <p v-else-if="curtidas >= 150 && curtidas < 170">
-        Este site recebeu {{ curtidas }} curtidas<br>
-        Para!!! ;=;
-      </p>
-
-      <p v-else-if="curtidas >= 170">
-        Este site recebeu {{ curtidas }} curtidas<br>
-        *Morto* x-x
-      </p>
-
-      <p v-else>
-        Este site recebeu {{ curtidas }} curtidas<br>
-        Obrigado ;)
-      </p>
-
-      <button v-on:click="like()">
+      <h1>Teste de eventos (agora com computed)</h1>
+      <div>
+        {{ likeBuilder }}
+      </div>
+      <button class="btn btn-green" @click="like()">
       👍 Curtir
       </button>
 
     </section>
 
     <section class="ranking-list">
+      <h1>Teste de v-for</h1>
       <h1>Rank dos mais legais:</h1>
 
       <div class="ranking-item">
@@ -116,16 +84,54 @@
           v-for="obj in todos"
           :key="obj.id"
         >
-        {{obj.id}}° - {{ obj.name}}<br>
+        {{obj.id}}° - {{ obj.title }}<br>
+
         </span> 
       </div>
     </section>
 
-     <section>
-      <p :class="pClass">
-      lipson
-    </p>
-     </section>
+    <section>
+      <div class="ranking-item">
+      <h1>Teste de Computed</h1>
+
+      <h3>📝 Afazeres:</h3>
+      <div
+        v-for="todo in todos"
+        :key="todo.id"
+      >
+        <input 
+          type="checkbox"
+          v-model="todo.completed"
+        >
+        {{todo.title}}
+        
+      </div>
+
+      <h3>Afazeres pendentes:</h3>
+      <div v-if="remainingTodos.length == 0">
+        <h5 style="color: grey;">Não há afazeres pendentes</h5>
+      </div>
+
+      <div v-else
+        v-for="todo in remainingTodos"
+        :key="todo.id"
+      >
+      {{todo.title}}
+      </div>
+
+      <h3>Afazeres completos:</h3>
+      <div v-if="completedTodos.length == 0">
+        <h5 style="color: grey;">Não há afazeres completos</h5>
+      </div>
+
+      <div v-else
+        v-for="todo in completedTodos"
+        :key="todo.id"
+      >
+      {{todo.title}}
+      </div>
+      </div> 
+    </section>
   </main>
 </template>
 
@@ -133,13 +139,15 @@
   import TheTest from './components/TheTest.vue'
   import HeaderTop from './components/HeaderTop.vue'
   import TheSidebar from './components/TheSidebar.vue'
+  import SlotTest from './components/SlotTest.vue'
 
   export default {
     name: 'App',
     components: {
     HeaderTop,
     TheTest,
-    TheSidebar
+    TheSidebar,
+    SlotTest
 },
 
   data() {
@@ -153,27 +161,45 @@
       isTitle: true,
       isGrennFont: true,
       todos: [
-          {
-            "id": 1,
-            "name": "Leanne Graham",
-          },
-          {
-            "id": 2,
-            "name": "Ervin Howell",
-          },
-          {
-            "id": 3,
-            "name": "Clementine Bauch",
-          },
-          {
-            "id": 4,
-            "name": "Patricia Lebsack",
-          },
-          {
-            "id": 5,
-            "name": "Chelsey Dietrich",
-          }
+            {
+              "id": 1,
+              "title": "delectus aut autem",
+              "completed": false
+            },
+            {
+              "id": 2,
+              "title": "quis ut nam facilis et officia qui",
+              "completed": false
+            },
+            {
+              "id": 3,
+              "title": "fugiat veniam minus",
+              "completed": false
+            },
+            {
+              "id": 4,
+              "title": "et porro tempora",
+              "completed": true
+            }
         ]
+      }
+    },
+  
+  computed: {
+    likeBuilder(){
+      if(this.curtidas == 1){
+        return `Este site recebeu ${this.curtidas} curtida`
+      } else{
+        return `Este site recebeu ${this.curtidas} curtidas`
+      }
+    },
+
+    remainingTodos(){
+      return this.todos.filter(todo => !todo.completed)
+    },
+
+    completedTodos(){
+      return this.todos.filter(todo => todo.completed)
     }
   },
 
@@ -187,6 +213,7 @@
 
       let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
       "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+
       let dias = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira",
       "Sábado"]
 
@@ -219,7 +246,8 @@
 
   section{
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-right: 25%;
     background: rgb(99,7,38);
     background: linear-gradient(-90deg, rgba(99,7,38,1) 0%, rgb(70, 7, 28) 100%);
@@ -229,10 +257,8 @@
   }
   
   .form-area{
-    padding:20px;
-    margin-left: 80px;
-    margin-right: 80px;
-
+    padding-top: 5%;
+    padding-bottom: 5%;
     background-color: #fff4f7;
     color: black;
     border-radius: 20px;
@@ -250,6 +276,21 @@
     display: inline-block;
   }
 
+  .like{
+    cursor: pointer;
+    margin-top: 20px;
+
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+    border:none;
+    color: #fff4f7;
+    font-size: medium;
+    box-shadow: 2px 4px rgba(0,0,0, 0.15);
+    font-weight: 700;
+    border-radius: 10px;
+  }
   .form input{
     width: 20vw;
 
@@ -258,7 +299,7 @@
     box-shadow: 2px 4px #20122c;
   }
 
-  .btn-form button{
+  .btn{
     cursor: pointer;
     margin-top: 20px;
 
@@ -335,6 +376,7 @@
     margin-left: 15%;
     margin-right: 15%;
     background-color: #630726;
+    border-radius: 25px 25px 25px 25px;
     }
 
     .form-area{
@@ -344,8 +386,8 @@
     color: black;
     border-radius: 20px;
     }
+
     .inner-form{
-    
     margin: 10px;
     align-content: center;
   }

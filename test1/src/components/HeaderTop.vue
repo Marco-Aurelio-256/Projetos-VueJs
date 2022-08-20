@@ -158,6 +158,10 @@ nav a li:last-of-type{
         display: none;
     }
 
+    .user-area{
+        display: none;
+    }
+
     .logo-container{
         margin-left: auto;
         float:none;

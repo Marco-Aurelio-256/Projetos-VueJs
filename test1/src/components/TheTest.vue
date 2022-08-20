@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>{{ question }}</h1>  
+      <h3>{{ question }}</h3>  
     </div>
 </template>
 
