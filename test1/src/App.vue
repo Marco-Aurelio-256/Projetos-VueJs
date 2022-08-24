@@ -135,9 +135,21 @@
     </section>
 
     <section>
-      <BaseAlert variant='sucess'>Seu formulário foi enviado com sucesso!</BaseAlert>
-      <BaseAlert variant='danger'>Falha ao enviar o seu formulário</BaseAlert>
+      <BaseAlert 
+        v-if="showAlert"
+        variant='sucess'
+        @close="onClose()">
+        Seu formulário foi enviado com sucesso!
+      </BaseAlert>
+
+      <BaseAlert
+        v-if="showAlert"
+        variant='danger'
+        @close="onClose()">
+        Falha ao enviar o seu formulário
+      </BaseAlert>
     </section>
+
   </main>
 </template>
 
@@ -168,6 +180,7 @@ import BaseAlert from './components/BaseAlert.vue'
         
       isTitle: true,
       isGrennFont: true,
+      showAlert: true,
       todos: [
             {
               "id": 1,
@@ -212,6 +225,10 @@ import BaseAlert from './components/BaseAlert.vue'
   },
 
   methods: {
+    onClose(){
+      this.showAlert = false
+    },
+
     like(){
       this.curtidas++
     },
