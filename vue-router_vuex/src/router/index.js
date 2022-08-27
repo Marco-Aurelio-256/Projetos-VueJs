@@ -24,6 +24,11 @@ const routes = [
     path: '/usuario/:id',
     name: 'usuario-editar',
     component: () => import('@/views/UserEdit.vue')
+  },
+  {
+    path: '/produto/:id',
+    name: 'produto',
+    component: () => import('@/products/AppProduct.vue')
   }
 ]
 
