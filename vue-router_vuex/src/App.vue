@@ -3,8 +3,8 @@
     <router-link to="/">Início</router-link> |
     <router-link to="/about">Sobre</router-link> |
     <router-link to="/bira">Bira?</router-link> |
-    <router-link to="/usuario/10">Usuário</router-link>
-    <router-link to="/produto">Produto</router-link>
+    <router-link to="/usuario/10">Usuário</router-link> |
+    <router-link to="/produtos">Produtos</router-link>
   </nav>
   <router-view/>
 </template>

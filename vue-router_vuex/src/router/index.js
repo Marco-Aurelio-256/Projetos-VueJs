@@ -26,9 +26,9 @@ const routes = [
     component: () => import('@/views/UserEdit.vue')
   },
   {
-    path: '/produto/:id',
-    name: 'produto',
-    component: () => import('@/products/AppProduct.vue')
+    path: '/produtos',
+    name: 'produtos',
+    component: () => import('@/views/products/ProductsView.vue')
   }
 ]
 
