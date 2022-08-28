@@ -10,7 +10,8 @@
   </div>
 
   <div class="cart">
-    <h1>Seu Carrinho:</h1>
+    <h1>Seu Carrinho</h1>
+    <h3>Total: {{$store.getters.getTotal}}</h3>
     <CartView
         v-for="product in $store.state.cart"
         :key="product.index"
