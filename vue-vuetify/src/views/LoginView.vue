@@ -82,55 +82,47 @@
   import { useRouter } from 'vue-router'
 
 export default {
-  setup() {
-    const store = useStore()
-    //const route = useRoute()
-    const router = useRouter()
-
-    const valid = ref(false)
-    const showInvalidLogin = ref(false)
-
-    const userData = ref({
-      email: store.state.user.email,
-      password: store.state.user.password
-    })
-
-    //SYSTEM RULES
-    const passwordRules = [
-      v => !!v || 'É necessário informar uma senha!'
-    ]
-
-    const emailRules = [
-      v => !!v || 'É necessário informar um e-mail',
-      v => /.+@.+\..+/.test(v) || 'E-mail precisa ser válido',
-    ]
-
-    const validate = () => {
-      const User = {
-        email: userData.value.email,
-        password: userData.value.password
-      }
-
-      store.commit('storeUser', User)
-      store.dispatch('validateUser', User)
-      
-      if(store.state.userValid) {
-        router.push('/calculator')
-      } else {
-        showInvalidLogin.value = true
-      }
+    setup() {
+        const store = useStore();
+        //const route = useRoute()
+        const router = useRouter();
+        const valid = ref(false);
+        const showInvalidLogin = ref(false);
+        const userData = ref({
+            email: store.state.user.email,
+            password: store.state.user.password
+        });
+        //SYSTEM RULES
+        const passwordRules = [
+            v => !!v || "É necessário informar uma senha!"
+        ];
+        const emailRules = [
+            v => !!v || "É necessário informar um e-mail",
+            v => /.+@.+\..+/.test(v) || "E-mail precisa ser válido",
+        ];
+        const validate = () => {
+            const User = {
+                email: userData.value.email,
+                password: userData.value.password
+            };
+            store.commit("storeUser", User);
+            store.dispatch("validateUser", User);
+            if (store.state.userValid) {
+                router.push("/calculator");
+            }
+            else {
+                showInvalidLogin.value = true;
+            }
+        };
+        return {
+            passwordRules,
+            emailRules,
+            showInvalidLogin,
+            valid,
+            userData,
+            validate
+        };
     }
-
-    return {
-      passwordRules,
-      emailRules,
-      showInvalidLogin,
-      valid,
-      userData,
-      validate
-    }
-    
-  },
 }
 </script>
 
