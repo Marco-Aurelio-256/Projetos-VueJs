@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <router-view/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+ import { onBeforeMount } from '@vue/runtime-core'
+  import { useStore } from 'vuex'
+  //import { useRoute } from 'vue-router'
+  import { useRouter } from 'vue-router'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    setup(){
+      const store = useStore()
+      const router = useRouter()
+
+      //Volta para a tela de login, caso o login não tenha sido feito
+      onBeforeMount(() => {
+        if(!store.state.userValid)
+          router.push('/login')
+        else router.push('/calculator')
+      })
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
