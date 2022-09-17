@@ -3,8 +3,8 @@
 
   <v-container class="align-self-start d-flex flex-column w-50 px-6 py-6 mt-10 bg-login rounded-xl">
     <div class="d-flex flex-column text-white">
-      <span class="text-h3">> LOGIN &lt;</span>
-      <span class="text-h5">Insira seu login abaixo para entrar na calculadora!</span>
+      <span class="text-h4">> LOGIN &lt;</span>
+      <span class="text-h6">Insira seu login abaixo para entrar na calculadora!</span>
       <span class="text-h6">Login para calculadora???</span>
     </div>
 
@@ -72,7 +72,6 @@
       </v-container>
     </v-form>
   </v-container>
-  <router-view/>
 </template>
 
 <script>
@@ -87,6 +86,7 @@ export default {
         //const route = useRoute()
         const router = useRouter();
         const valid = ref(false);
+        
         const showInvalidLogin = ref(false);
         const userData = ref({
             email: store.state.user.email,
